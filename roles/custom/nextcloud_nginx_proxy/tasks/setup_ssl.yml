@@ -39,6 +39,14 @@
       with_items:
         - nextcloud-nginx-proxy-ssl-certificate-renew.timer
         - nextcloud-nginx-proxy-ssl-certificate-renew.service
+
+    - when: nextcloud_playbook_reverse_proxy_type == 'playbook-managed-nginx'
+      name: Ensure Nginx reload systemd units installed
+      ansible.builtin.template:
+        src: "{{ role_path }}/templates/systemd/{{ item }}.j2"
+        dest: "{{ devture_systemd_docker_base_systemd_path }}/{{ item }}"
+        mode: 0644
+      with_items:
         - nextcloud-nginx-proxy-reload.timer
         - nextcloud-nginx-proxy-reload.service
 

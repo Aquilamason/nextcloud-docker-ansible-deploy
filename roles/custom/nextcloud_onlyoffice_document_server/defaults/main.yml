@@ -10,3 +10,6 @@ nextcloud_onlyoffice_document_server_systemd_required_services_list: ['docker.se
 #
 # Takes an "<ip>:<port>" or "<port>" value (e.g. "127.0.0.1:37180"), or empty string to not expose.
 nextcloud_onlyoffice_document_server_container_http_host_bind_port: ""
+
+nextcloud_onlyoffice_document_server_base_path: "{{ nextcloud_base_path }}/onlyoffice"
+nextcloud_onlyoffice_document_server_log_path: "{{ nextcloud_onlyoffice_document_server_base_path }}/log"

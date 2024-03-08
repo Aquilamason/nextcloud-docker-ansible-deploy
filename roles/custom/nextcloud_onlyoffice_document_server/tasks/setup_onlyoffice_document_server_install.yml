@@ -1,5 +1,16 @@
 ---
 
+- name: Ensure OnlyOffice path exists
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0750
+    owner: "{{ nextcloud_user_uid }}"
+    group: "{{ nextcloud_user_gid }}"
+  with_items:
+    - "{{ nextcloud_onlyoffice_document_server_base_path }}"
+    - "{{ nextcloud_onlyoffice_document_server_log_path }}"
+
 - name: Ensure OnlyOffice container image is pulled
   community.docker.docker_image:
     name: "{{ nextcloud_onlyoffice_document_server_container_image }}"

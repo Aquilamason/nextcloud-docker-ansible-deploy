@@ -44,5 +44,5 @@
 
 - name: Create Nextcloud network in Docker
   ansible.builtin.command:
-    cmd: "docker network create --driver=bridge {{ nextcloud_container_network }}"
+    cmd: "docker network create --driver=bridge {% if nextcloud_container_ipv6_subnet %}--ipv6 --subnet {{ nextcloud_container_ipv6_subnet }}{% endif %} {{ nextcloud_container_network }}"
   when: "nextcloud_result_docker_network.stdout == ''"

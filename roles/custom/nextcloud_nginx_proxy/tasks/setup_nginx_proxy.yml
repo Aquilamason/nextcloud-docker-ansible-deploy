@@ -9,6 +9,8 @@
   with_items:
     - "nextcloud-apache.conf"
     - "nextcloud-collabora-online.conf"
+  when: (item == "nextcloud-collabora-online.conf" and nextcloud_collabora_online_enabled) or
+        (item != "nextcloud-collabora-online.conf")
 
 - name: Ensure nginx-proxy container image is pulled
   community.docker.docker_image:
@@ -16,9 +18,11 @@
     source: "{{ 'pull' if ansible_version.major > 2 or ansible_version.minor > 7 else omit }}"
     force_source: "{{ nextcloud_nginx_proxy_container_image_force_pull if ansible_version.major > 2 or ansible_version.minor >= 8 else omit }}"
     force: "{{ omit if ansible_version.major > 2 or ansible_version.minor >= 8 else nextcloud_nginx_proxy_container_image_force_pull }}"
+  when: nextcloud_playbook_reverse_proxy_type == 'playbook-managed-nginx'
 
 - name: Ensure nextcloud-nginx-proxy.service installed
   ansible.builtin.template:
     src: "{{ role_path }}/templates/systemd/nextcloud-nginx-proxy.service.j2"
     dest: "{{ devture_systemd_docker_base_systemd_path }}/nextcloud-nginx-proxy.service"
     mode: 0644
+  when: nextcloud_playbook_reverse_proxy_type == 'playbook-managed-nginx'

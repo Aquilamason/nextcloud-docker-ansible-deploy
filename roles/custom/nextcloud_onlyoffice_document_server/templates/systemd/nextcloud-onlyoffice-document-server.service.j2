@@ -20,6 +20,8 @@ ExecStart={{ devture_systemd_docker_base_host_command_docker }} run \
 			{% if nextcloud_onlyoffice_document_server_container_http_host_bind_port %}
 			-p {{ nextcloud_onlyoffice_document_server_container_http_host_bind_port }}:80 \
 			{% endif %}
+			-v {{ nextcloud_onlyoffice_document_server_log_path }}:/var/log/onlyoffice  \
+    		-e JWT_ENABLED=false \
 			{{ nextcloud_onlyoffice_document_server_container_image }}
 
 ExecStop=-{{ devture_systemd_docker_base_host_command_sh }} -c '{{ devture_systemd_docker_base_host_command_docker }} kill nextcloud-onlyoffice-document-server 2>/dev/null || true'
