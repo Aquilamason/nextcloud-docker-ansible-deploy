@@ -1,7 +1,6 @@
 # Base directory that contains everything
 nextcloud_base_path: "/nextcloud"
 
-nextcloud_container_ipv6_subnet: ''
 nextcloud_container_network: nextcloud
 
 nextcloud_user_username: nextcloud

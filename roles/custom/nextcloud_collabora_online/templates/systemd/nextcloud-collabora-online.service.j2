@@ -16,7 +16,7 @@ ExecStartPre=-{{ devture_systemd_docker_base_host_command_sh }} -c '{{ devture_s
 ExecStartPre={{ devture_systemd_docker_base_host_command_docker }} create \
 			--rm \
 			--name=nextcloud-collabora-online \
-			--log-driver=none \
+			--log-driver=journald \
 			--network={{ nextcloud_collabora_online_container_network }} \
 			{% if nextcloud_collabora_online_container_http_host_bind_port %}
 			-p {{ nextcloud_collabora_online_container_http_host_bind_port }}:9980 \
