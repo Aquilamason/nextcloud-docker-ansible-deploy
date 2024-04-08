@@ -32,4 +32,4 @@
       value: "https://{{ nextcloud_collabora_online_domain }}"
     -
       key: wopi_allowlist
-      value: "{{ nextcloud_result_docker_network_subnet.stdout }}"
+      value: "{{ nextcloud_result_docker_network_subnet.stdout }}, {{ nextcloud_container_ipv6_subnet }}"
