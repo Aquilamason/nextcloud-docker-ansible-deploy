@@ -21,6 +21,7 @@
     --name=nextcloud-nginx-proxy-certbot
     --user={{ nextcloud_user_uid }}:{{ nextcloud_user_gid }}
     --cap-drop=ALL
+    --network={{ nextcloud_container_network }}
     -p {{ nextcloud_nginx_proxy_ssl_lets_encrypt_container_standalone_http_host_bind_port }}:8080
     --mount type=bind,src={{ nextcloud_nginx_proxy_ssl_config_dir_path }},dst=/etc/letsencrypt
     --mount type=bind,src={{ nextcloud_nginx_proxy_ssl_log_dir_path }},dst=/var/log/letsencrypt

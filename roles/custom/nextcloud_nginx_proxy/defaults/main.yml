@@ -44,7 +44,7 @@ nextcloud_nginx_proxy_ssl_config_dir_path: "{{ nextcloud_nginx_proxy_ssl_base_pa
 nextcloud_nginx_proxy_ssl_log_dir_path: "{{ nextcloud_nginx_proxy_ssl_base_path }}/log"
 # Email address to pass to Let's Encrypt when obtaining SSL certificates for your domain.
 nextcloud_nginx_proxy_ssl_support_email: ''
-nextcloud_nginx_proxy_ssl_certbot_container_image: "docker.io/certbot/certbot:{{ nextcloud_nginx_proxy_ssl_architecture }}-v2.0.0"
+nextcloud_nginx_proxy_ssl_certbot_container_image: "docker.io/certbot/certbot:{{ nextcloud_nginx_proxy_ssl_architecture }}-v2.10.0"
 nextcloud_nginx_proxy_ssl_certbot_container_image_force_pull: "{{ nextcloud_nginx_proxy_ssl_certbot_container_image.endswith(':latest') }}"
 nextcloud_nginx_proxy_ssl_certbot_standalone_http_port: 2403
 nextcloud_nginx_proxy_ssl_use_staging: false

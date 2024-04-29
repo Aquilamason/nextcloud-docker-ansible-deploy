@@ -5,7 +5,7 @@ nextcloud_reverse_proxy_companion_enabled: false
 nextcloud_reverse_proxy_companion_base_path: "{{ nextcloud_base_path }}/reverse-proxy-companion"
 nextcloud_reverse_proxy_companion_config_path: "{{ nextcloud_reverse_proxy_companion_base_path }}/conf.d"
 
-nextcloud_reverse_proxy_companion_container_image: "docker.io/nginx:1.23.2-alpine"
+nextcloud_reverse_proxy_companion_container_image: "docker.io/nginx:1.25.5-alpine"
 
 nextcloud_reverse_proxy_companion_http_bind_port: ''
 
