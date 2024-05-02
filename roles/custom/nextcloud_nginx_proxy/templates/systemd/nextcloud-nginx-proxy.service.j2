@@ -11,7 +11,7 @@ Environment="HOME={{ devture_systemd_docker_base_systemd_unit_home_path }}"
 ExecStartPre=-{{ devture_systemd_docker_base_host_command_docker }} kill nextcloud-nginx-proxy
 ExecStartPre=-{{ devture_systemd_docker_base_host_command_docker }} rm nextcloud-nginx-proxy
 ExecStart={{ devture_systemd_docker_base_host_command_docker }} run --rm --name nextcloud-nginx-proxy \
-			--log-driver=none \
+			--log-driver=journald \
 			--network={{ nextcloud_container_network }} \
 			-p 80:8080 \
 			-p 443:8443 \
