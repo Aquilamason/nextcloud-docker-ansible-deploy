@@ -17,6 +17,8 @@ ExecStart={{ devture_systemd_docker_base_host_command_docker }} run --rm --name 
 			-p 443:8443 \
 			-v {{ nextcloud_nginx_proxy_confd_path }}:/etc/nginx/conf.d:ro \
 			-v {{ nextcloud_nginx_proxy_ssl_config_dir_path }}:{{ nextcloud_nginx_proxy_ssl_config_dir_path }}:ro \
+			-v /etc/letsencrypt:/etc/letsencrypt:ro \
+			-v /var/sub-web:/var/sub-web:ro \
 			{{ nextcloud_nginx_proxy_container_image }}
 ExecStop=-{{ devture_systemd_docker_base_host_command_docker }} kill nextcloud-nginx-proxy
 ExecStop=-{{ devture_systemd_docker_base_host_command_docker }} rm nextcloud-nginx-proxy
