@@ -1,0 +1,65 @@
+# This is your Nextcloud server's domain name.
+#
+# Example value: nextcloud.example.com
+nextcloud_server_fqn_nextcloud: nextcloud.autodevops.link
+
+nextcloud_container_ipv6_subnet: fd00:01::/112
+
+# Config Collabora Online integration.
+nextcloud_collabora_online_enabled: true
+nextcloud_collabora_online_version: 24.04.2.1.1
+nextcloud_collabora_online_domain: collabora.autodevops.link
+nextcloud_collabora_online_env_variable_custom_params: "" #"--o:logging.level=info"
+# A password for the admin interface, available at: https://COLLABORA_ONLINE_DOMAIN/browser/dist/admin/admin.html
+nextcloud_collabora_online_env_variable_password: '{{ nextcloud_collabora_admin_password }}'
+
+nextcloud_nextcloud_version: 29.0.0-apache
+nextcloud_nginx_proxy_ssl_support_email: aquila.mason.2014@gmail.com
+
+# A secret used as a base, for generating various other secrets.
+# You can put any string here, but generating a strong one is preferred (e.g. `pwgen -s 64 1`).
+nextcloud_generic_secret_key: '{{ nextcloud_generic_secret_key }}'
+
+# A Postgres password to use for the superuser Postgres user (called `root` by default).
+#
+# The playbook creates additional Postgres users and databases (one for each enabled service) using this superuser account.
+devture_postgres_connection_password: '{{ postgres_admin_password }}'
+
+devture_postgres_process_extra_arguments: [
+  "-c shared_buffers=128MB",
+  "-c effective_cache_size=768MB",
+  "-c effective_io_concurrency=100",
+  "-c random_page_cost=1.1",
+  "-c min_wal_size=500MB",
+]
+
+devture_systemd_service_manager_up_verification_delay_seconds: 25
+
+nextcloud_nextcloud_config_additional_parameters:
+  - key: filelocking.enabled
+    value: true
+    type: boolean
+  - key: memcache.local
+    value: '\\OC\\Memcache\\APCu'
+    type: string
+  - key: maintenance_window_start
+    value: 17
+    type: integer
+
+nextcloud_nextcloud_container_additional_environment_variables: |
+  PHP_UPLOAD_LIMIT=8G
+  PHP_MEMORY_LIMIT=512m
+
+# A Postgres password to use for the `nextcloud` database.
+# You will use the same password during initial Nextcloud installation.
+nextcloud_nextcloud_database_password: '{{ postgres_nextcloud_password }}'
+
+# Install the OnlyOffice(https://www.onlyoffice.com/) document-editing services.
+nextcloud_onlyoffice_document_server_enabled: false
+
+nextcloud_onlyoffice_document_server_container_image: "docker.io/onlyoffice/documentserver:8.0.1.1"
+
+nextcloud_onlyoffice_document_server_jwt_secret: '{{ onlyoffice_jwt_secret }}'
+
+# Using nextcloud-nginx-proxy to generate configuration for your own, other, nginx proxy
+nextcloud_playbook_reverse_proxy_type: playbook-managed-nginx
