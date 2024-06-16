@@ -1,3 +1,9 @@
+docker_daemon_options:
+  ipv6: true
+  fixed-cidr-v6: "fd00:01::/112"
+  experimental: true
+  ip6tables: true
+
 # This is your Nextcloud server's domain name.
 #
 # Example value: nextcloud.example.com
@@ -7,13 +13,13 @@ nextcloud_container_ipv6_subnet: fd00:01::/112
 
 # Config Collabora Online integration.
 nextcloud_collabora_online_enabled: true
-nextcloud_collabora_online_version: 24.04.1.4.1
+nextcloud_collabora_online_version: 24.04.4.1.1
 nextcloud_collabora_online_domain: collabora6.autodevops.link
 nextcloud_collabora_online_env_variable_custom_params: ""
 # A password for the admin interface, available at: https://COLLABORA_ONLINE_DOMAIN/browser/dist/admin/admin.html
 nextcloud_collabora_online_env_variable_password: '{{ nextcloud_collabora_admin_password }}'
 
-nextcloud_nextcloud_version: 29.0.0-apache
+nextcloud_nextcloud_version: 29.0.1-apache
 nextcloud_nginx_proxy_ssl_support_email: aquila.mason.2014@gmail.com
 
 # A secret used as a base, for generating various other secrets.
