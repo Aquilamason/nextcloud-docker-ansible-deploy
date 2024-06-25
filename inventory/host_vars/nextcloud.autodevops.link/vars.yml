@@ -11,13 +11,13 @@ nextcloud_container_ipv6_subnet: fd00:01::/112
 
 # Config Collabora Online integration.
 nextcloud_collabora_online_enabled: true
-nextcloud_collabora_online_version: 24.04.4.1.1
+nextcloud_collabora_online_version: 24.04.4.2.1
 nextcloud_collabora_online_domain: collabora.autodevops.link
 nextcloud_collabora_online_env_variable_custom_params: "" #"--o:logging.level=info"
 # A password for the admin interface, available at: https://COLLABORA_ONLINE_DOMAIN/browser/dist/admin/admin.html
 nextcloud_collabora_online_env_variable_password: '{{ nextcloud_collabora_admin_password }}'
 
-nextcloud_nextcloud_version: 29.0.1-apache
+nextcloud_nextcloud_version: 29.0.2-apache
 nextcloud_nginx_proxy_ssl_support_email: aquila.mason.2014@gmail.com
 
 # A secret used as a base, for generating various other secrets.
@@ -47,7 +47,7 @@ nextcloud_nextcloud_config_additional_parameters:
     value: '\\OC\\Memcache\\APCu'
     type: string
   - key: maintenance_window_start
-    value: 17
+    value: 1
     type: integer
 
 nextcloud_nextcloud_container_additional_environment_variables: |
