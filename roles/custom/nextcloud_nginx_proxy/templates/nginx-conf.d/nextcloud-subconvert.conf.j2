@@ -33,7 +33,7 @@ server {
 	{% endif %}
 	server_name {{ nextcloud_subconvert_domain }};
 
-	root /dev/null;
+	root /var/sub-web;
 
 	ssl_certificate {{ nextcloud_nginx_proxy_ssl_config_dir_path }}/live/{{ nextcloud_subconvert_domain }}/fullchain.pem;
 	ssl_certificate_key {{ nextcloud_nginx_proxy_ssl_config_dir_path }}/live/{{ nextcloud_subconvert_domain }}/privkey.pem;
@@ -45,7 +45,7 @@ server {
 		return 301 https://$server_name$request_uri;
 	}
 
-	set $backend "127.0.0.1:25500";
+	set $backend "{{ nextcloud_subconvert_internal_ip }}:25500";
 
     location ~ /sub.* {
         proxy_pass http://$backend;

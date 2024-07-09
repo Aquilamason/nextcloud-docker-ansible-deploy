@@ -58,9 +58,12 @@ nextcloud_nextcloud_container_additional_environment_variables: |
 # You will use the same password during initial Nextcloud installation.
 nextcloud_nextcloud_database_password: '{{ postgres_nextcloud_password }}'
 
+nextcloud_reverse_proxy_companion_container_image: "docker.io/nginx:1.27.0-alpine"
+
 nextcloud_nginx_proxy_ssl_additional_domains_to_obtain_certificates_for:
   - sub.autodevops.link
 nextcloud_subconvert_domain: sub.autodevops.link
+nextcloud_subconvert_internal_ip: 172.26.6.7
 
 # Install the OnlyOffice(https://www.onlyoffice.com/) document-editing services.
 nextcloud_onlyoffice_document_server_enabled: false
