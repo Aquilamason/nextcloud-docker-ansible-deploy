@@ -6,4 +6,3 @@
 
 [nextcloud_servers]
 nextcloud.autodevops.link ansible_host=nextcloud.autodevops.link ansible_ssh_user=aquila become=true become_user=root
-nextcloud6.autodevops.link ansible_host=nextcloud6.autodevops.link ansible_ssh_user=aquila become=true become_user=root
