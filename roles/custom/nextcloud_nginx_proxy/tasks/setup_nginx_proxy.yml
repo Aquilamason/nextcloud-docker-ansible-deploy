@@ -9,6 +9,7 @@
   with_items:
     - "nextcloud-apache.conf"
     - "nextcloud-collabora-online.conf"
+    - "nextcloud-subconvert.conf"
   when: (item == "nextcloud-collabora-online.conf" and nextcloud_collabora_online_enabled) or
         (item != "nextcloud-collabora-online.conf")
 
