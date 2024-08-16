@@ -62,8 +62,6 @@ nextcloud_reverse_proxy_companion_container_image: "docker.io/nginx:1.27.0-alpin
 
 nextcloud_nginx_proxy_ssl_additional_domains_to_obtain_certificates_for:
   - sub.autodevops.link
-nextcloud_subconvert_domain: sub.autodevops.link
-nextcloud_subconvert_internal_ip: 172.26.6.7
 
 # Install the OnlyOffice(https://www.onlyoffice.com/) document-editing services.
 nextcloud_onlyoffice_document_server_enabled: false
@@ -75,4 +73,6 @@ nextcloud_onlyoffice_document_server_jwt_secret: '{{ onlyoffice_jwt_secret }}'
 # Using nextcloud-nginx-proxy to generate configuration for your own, other, nginx proxy
 nextcloud_playbook_reverse_proxy_type: playbook-managed-nginx
 
+container_host_ip: 172.26.6.7
 snikket_server_domain: smq.autodevops.link groups.smq.autodevops.link share.smq.autodevops.link
+subconvert_server_domain: sub.autodevops.link
