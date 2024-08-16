@@ -74,3 +74,5 @@ nextcloud_onlyoffice_document_server_jwt_secret: '{{ onlyoffice_jwt_secret }}'
 
 # Using nextcloud-nginx-proxy to generate configuration for your own, other, nginx proxy
 nextcloud_playbook_reverse_proxy_type: playbook-managed-nginx
+
+snikket_server_domain: smq.autodevops.link groups.smq.autodevops.link share.smq.autodevops.link
