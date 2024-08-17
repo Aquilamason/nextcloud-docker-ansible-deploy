@@ -25,8 +25,8 @@ server {
 	{% endif %}
 	server_name {{ snikket_server_domain }};
 
-	ssl_certificate {{ nextcloud_nginx_proxy_ssl_config_dir_path }}/live/{{ nextcloud_subconvert_domain }}/fullchain.pem;
-	ssl_certificate_key {{ nextcloud_nginx_proxy_ssl_config_dir_path }}/live/{{ nextcloud_subconvert_domain }}/privkey.pem;
+	ssl_certificate {{ snikket_ssl_config_dir_path }}/letsencrypt/live/{{ snikket_server_domain.split(' ')[0] }}/fullchain.pem;
+	ssl_certificate_key {{ snikket_ssl_config_dir_path }}/letsencrypt/live/{{ snikket_server_domain.split(' ')[0] }}/privkey.pem;
 
 	if ($scheme = http) {
 		return 301 https://$server_name$request_uri;
