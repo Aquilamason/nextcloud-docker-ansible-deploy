@@ -10,7 +10,6 @@
     - "nextcloud-apache.conf"
     - "nextcloud-collabora-online.conf"
     - "custom-subconvert.conf"
-    - "custom-snikket.conf"
   when: (item == "nextcloud-collabora-online.conf" and nextcloud_collabora_online_enabled) or
         (item != "nextcloud-collabora-online.conf")
 
